@@ -68,3 +68,4 @@ validation-reports/
 
 # AILYDIAN Integration
 .AISystem/
+.env.production
