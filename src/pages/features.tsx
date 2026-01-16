@@ -55,7 +55,7 @@ const statusConfig = {
     icon: Sparkles,
   },
   [FeatureStatus.COMING_SOON]: {
-    label: '🚧 Coming Soon',
+    label: '📋 Planned',
     bgColor: 'bg-yellow-50',
     borderColor: 'border-yellow-200',
     textColor: 'text-yellow-900',
@@ -141,7 +141,7 @@ const FeaturesPage: NextPage = () => {
         <title>Feature Status - Travel LyDian</title>
         <meta
           name="description"
-          content="Complete feature status overview. See which Travel LyDian features are production-ready, in beta, demo, or coming soon."
+          content="Complete feature status overview. See which Travel LyDian features are production-ready, in beta, demo, or planned for future releases."
         />
       </Head>
 
@@ -203,7 +203,7 @@ const FeaturesPage: NextPage = () => {
                 className="bg-yellow-50 rounded-xl p-4 shadow-sm border border-yellow-200"
               >
                 <p className="text-3xl font-bold text-yellow-900">{summary.comingSoon}</p>
-                <p className="text-sm text-yellow-700">Coming Soon</p>
+                <p className="text-sm text-yellow-700">Planned</p>
               </motion.div>
             </div>
           </motion.div>
@@ -272,7 +272,7 @@ const FeaturesPage: NextPage = () => {
             </section>
           )}
 
-          {/* Coming Soon Features */}
+          {/* Planned Features */}
           {grouped.comingSoon.length > 0 && (
             <section className="mb-16">
               <motion.h2
@@ -281,7 +281,7 @@ const FeaturesPage: NextPage = () => {
                 className="text-3xl font-bold text-lydian-text mb-6 flex items-center gap-3"
               >
                 <Clock className="w-8 h-8 text-yellow-500" />
-                Coming Soon
+                Planned Features
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {grouped.comingSoon.map((feature) => (

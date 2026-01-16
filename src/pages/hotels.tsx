@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import { SEOHead } from '../components/seo/SEOHead';
 import { PAGE_SEO } from '../config/seo';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +36,12 @@ import {
 import { useCart } from '../context/CartContext';
 import { ModernHeader } from '../components/layout/ModernHeader';
 import { BookingFooter } from '../components/layout/BookingFooter';
-import { NeoHero } from '../components/neo-glass/NeoHero';
 import { FuturisticCard } from '../components/neo-glass/FuturisticCard';
-import { FuturisticButton } from '../components/neo-glass/FuturisticButton';
 import logger from '../lib/logger';
 import { useTranslation } from 'next-i18next';
+
+// Client-side animation wrapper - loads after hydration
+const HotelsClientWrapper = dynamic(() => import('../components/hotels/HotelsClientWrapper'), { ssr: false });
 
 const HotelsNewPage: React.FC = () => {
   const router = useRouter();
@@ -409,80 +411,19 @@ const HotelsNewPage: React.FC = () => {
       </Link>
 
       <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
-        {/* Hero Section with NeoHero */}
-        <NeoHero
-          title="Hayalinizdeki Oteli Bulun"
-          subtitle="Binlerce gerçek otel, anlık fiyatlar ve güvenli rezervasyon ile kusursuz konaklama deneyimi"
-          gradient="twilight"
-          height="60vh"
-          overlayOpacity={0.3}
-          showFloatingElements={true}>
-
-          {/* Search Form in Hero */}
-          <div className="w-full max-w-6xl mx-auto mt-12">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="relative group">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
-                  <input
-                    type="text"
-                    value={destination}
-                    onChange={(e) => setDestination(e.target.value)}
-                    placeholder="Nereye gidiyorsunuz?"
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
-
-                </div>
-
-                <div className="relative group">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
-                  <input
-                    type="date"
-                    value={checkIn}
-                    onChange={(e) => setCheckIn(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
-
-                </div>
-
-                <div className="relative group">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
-                  <input
-                    type="date"
-                    value={checkOut}
-                    onChange={(e) => setCheckOut(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
-
-                </div>
-
-                <div className="relative group">
-                  <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
-                  <select
-                    value={guests}
-                    onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl appearance-none cursor-pointer">
-
-                    <option value={1} className="bg-gray-900 text-white">1 Misafir</option>
-                    <option value={2} className="bg-gray-900 text-white">2 Misafir</option>
-                    <option value={3} className="bg-gray-900 text-white">3 Misafir</option>
-                    <option value={4} className="bg-gray-900 text-white">4 Misafir</option>
-                    <option value={5} className="bg-gray-900 text-white">5+ Misafir</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="mt-6 flex justify-center">
-                <FuturisticButton onClick={searchHotels}
-                  disabled={loading}
-                  loading={loading}
-                  variant="gradient"
-                  size="lg"
-                  leftIcon={<Search className="w-5 h-5" />}>
-
-                  {loading ? 'Aranıyor...' : 'Otel Ara'}
-                </FuturisticButton>
-              </div>
-            </div>
-          </div>
-        </NeoHero>
+        {/* 🎬 CLIENT-SIDE HERO (loads after hydration) */}
+        <HotelsClientWrapper
+          destination={destination}
+          checkIn={checkIn}
+          checkOut={checkOut}
+          guests={guests}
+          loading={loading}
+          onDestinationChange={setDestination}
+          onCheckInChange={setCheckIn}
+          onCheckOutChange={setCheckOut}
+          onGuestsChange={setGuests}
+          onSearch={searchHotels}
+        />
 
         {/* Filter Section - Neo-Glass Design */}
         <section className="bg-white/10 backdrop-blur-xl border-b border-white/20">

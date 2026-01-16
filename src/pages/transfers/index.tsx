@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
@@ -33,7 +34,6 @@ import {
   Clock,
   Shield } from 'lucide-react';
 import { ModernHeader } from '@/components/layout/ModernHeader';
-import TransferRouteSelector from '@/components/transfers/TransferRouteSelector';
 import type { AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 import { AnimatedCarSVG } from '@/components/icons/AnimatedCarSVG';
 import {
@@ -43,6 +43,9 @@ import {
   generateBreadcrumbSchema } from
 '@/lib/seo-config';
 import antalyaTransfers from '@/data/antalya-transfers';
+
+// Client-side animation wrapper - loads after hydration
+const TransfersClientWrapper = dynamic(() => import('@/components/transfers/TransfersClientWrapper'), { ssr: false });
 
 // Transfer vehicle types
 const TRANSFER_TYPES = [
@@ -243,58 +246,12 @@ const TransfersPage: React.FC = () => {
       <ModernHeader />
 
       <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
-        {/* Hero Section - Full Width Search */}
-        <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12">
-
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full mb-6">
-                <Bus className="w-5 h-5" />
-                <span className="text-sm font-medium">Transfer Hizmetleri</span>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-                Güvenli ve Konforlu
-                <br />
-                <span className="text-blue-200">Transfer Deneyimi</span>
-              </h1>
-
-              <p className="text-xl text-blue-50 mb-2 leading-relaxed max-w-3xl mx-auto">
-                D2 belgeli transfer firmaları ile havaalanı, otel ve şehir içi transferleriniz güvende. 7/24 hizmet.
-              </p>
-            </motion.div>
-
-            {/* Full Width Transfer Route Selector */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-6xl mx-auto">
-
-              <TransferRouteSelector
-                from={searchForm.from}
-                to={searchForm.to}
-                dateTime={searchForm.dateTime}
-                passengers={searchForm.passengers}
-                vehicleType={searchForm.vehicleType}
-                onFromChange={(value, location) => {
-                  setSearchForm({ ...searchForm, from: value });
-                }}
-                onToChange={(value, location) => {
-                  setSearchForm({ ...searchForm, to: value });
-                }}
-                onDateTimeChange={(value) => setSearchForm({ ...searchForm, dateTime: value })}
-                onPassengersChange={(value) => setSearchForm({ ...searchForm, passengers: value })}
-                onVehicleTypeChange={(value) => setSearchForm({ ...searchForm, vehicleType: value })}
-                onSearch={handleSearch} />
-
-            </motion.div>
-          </div>
-        </section>
+        {/* 🎬 CLIENT-SIDE HERO (loads after hydration) */}
+        <TransfersClientWrapper
+          searchForm={searchForm}
+          onSearchFormChange={setSearchForm}
+          onSearch={handleSearch}
+        />
 
         {/* Popüler Rotalar */}
         <section className="bg-gradient-to-br from-slate-900 via-black to-slate-800 py-12">

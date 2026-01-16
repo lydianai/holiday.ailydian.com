@@ -200,12 +200,12 @@ const VirtualToursPage: NextPage = () => {
       </Head>
 
       <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
-        {/* Demo Badge */}
+        {/* Beta Badge */}
         <div className="absolute top-6 right-6 z-50">
           <DemoBadge
             variant="beta"
             size="lg"
-            tooltip="Virtual tours are in beta. 360-degree experience with basic VR support. Full VR headset support coming soon."
+            tooltip="Virtual tours are in beta. 360-degree experience powered by Three.js. Full VR headset support planned for Q2 2026."
           />
         </div>
 
@@ -216,7 +216,7 @@ const VirtualToursPage: NextPage = () => {
             <div>
               <p className="font-semibold">Virtual Tours - Beta Feature</p>
               <p className="text-sm mt-1">
-                Our 360-degree virtual tours are currently in beta with basic panoramic support. Full VR headset integration (Oculus, Meta Quest) coming soon. AR property previews launching next quarter.
+                Our 360-degree virtual tours are powered by Three.js with immersive panoramic support. Full VR headset integration (Oculus, Meta Quest) planned for Q2 2026. AR property previews launching Q3 2026.
               </p>
             </div>
           </div>

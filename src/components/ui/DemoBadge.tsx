@@ -26,13 +26,13 @@ const getDemoBadgeConfig = (variant: DemoBadgeVariant) => {
       tooltip: 'This is a simulated blockchain feature. No real transactions occur.',
     },
     ai: {
-      label: 'AI DEMO',
+      label: 'AI POWERED',
       icon: Beaker,
       bgColor: 'bg-purple-100',
       textColor: 'text-purple-700',
       borderColor: 'border-purple-300',
       dotColor: 'bg-purple-500',
-      tooltip: 'This AI feature uses simulated responses. Real integration coming soon.',
+      tooltip: 'This feature is powered by advanced AI models (Claude, GPT-4, Gemini).',
     },
     beta: {
       label: 'BETA',
@@ -44,13 +44,13 @@ const getDemoBadgeConfig = (variant: DemoBadgeVariant) => {
       tooltip: 'This feature is in beta testing.',
     },
     'coming-soon': {
-      label: 'COMING SOON',
+      label: 'PLANNED',
       icon: Clock,
       bgColor: 'bg-lydian-bg-surface-raised',
       textColor: 'text-lydian-text-secondary',
       borderColor: 'border-white/30',
       dotColor: 'bg-gray-500',
-      tooltip: 'This feature is coming soon.',
+      tooltip: 'This feature is planned for future release.',
     },
     demo: {
       label: 'DEMO',

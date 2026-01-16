@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Search, Loader2, Navigation } from 'lucide-react';
+import { searchAdvancedLocations, AdvancedLocationSuggestion } from '@/lib/location-service-advanced';
 
 interface LocationSuggestion {
   id: string;
@@ -36,63 +37,71 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | undefined>();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Turkish cities and airports database
-  const turkishLocations: LocationSuggestion[] = [
-  { id: 'ist-city', name: 'İstanbul', city: 'İstanbul', country: 'Türkiye', type: 'city' },
-  { id: 'ist-airport', name: 'İstanbul Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'IST' },
-  { id: 'saw-airport', name: 'Sabiha Gökçen Havalimanı', city: 'İstanbul', country: 'Türkiye', type: 'airport', code: 'SAW' },
-  { id: 'ayt-city', name: 'Antalya', city: 'Antalya', country: 'Türkiye', type: 'city' },
-  { id: 'ayt-airport', name: 'Antalya Havalimanı', city: 'Antalya', country: 'Türkiye', type: 'airport', code: 'AYT' },
-  { id: 'izm-city', name: 'İzmir', city: 'İzmir', country: 'Türkiye', type: 'city' },
-  { id: 'adb-airport', name: 'Adnan Menderes Havalimanı', city: 'İzmir', country: 'Türkiye', type: 'airport', code: 'ADB' },
-  { id: 'ank-city', name: 'Ankara', city: 'Ankara', country: 'Türkiye', type: 'city' },
-  { id: 'esb-airport', name: 'Esenboğa Havalimanı', city: 'Ankara', country: 'Türkiye', type: 'airport', code: 'ESB' },
-  { id: 'bod-city', name: 'Bodrum', city: 'Bodrum', country: 'Türkiye', type: 'city' },
-  { id: 'bjv-airport', name: 'Bodrum Havalimanı', city: 'Bodrum', country: 'Türkiye', type: 'airport', code: 'BJV' },
-  { id: 'dlm-airport', name: 'Dalaman Havalimanı', city: 'Dalaman', country: 'Türkiye', type: 'airport', code: 'DLM' },
-  { id: 'ala-city', name: 'Alanya', city: 'Alanya', region: 'Antalya', country: 'Türkiye', type: 'city' },
-  { id: 'gzp-airport', name: 'Gazipaşa-Alanya Havalimanı', city: 'Alanya', country: 'Türkiye', type: 'airport', code: 'GZP' },
-  { id: 'belek', name: 'Belek', city: 'Belek', region: 'Antalya', country: 'Türkiye', type: 'region' },
-  { id: 'lara', name: 'Lara', city: 'Lara', region: 'Antalya', country: 'Türkiye', type: 'region' },
-  { id: 'side', name: 'Side', city: 'Side', region: 'Antalya', country: 'Türkiye', type: 'region' },
-  { id: 'kemer', name: 'Kemer', city: 'Kemer', region: 'Antalya', country: 'Türkiye', type: 'region' },
-  { id: 'kas', name: 'Kaş', city: 'Kaş', region: 'Antalya', country: 'Türkiye', type: 'city' },
-  { id: 'fethiye', name: 'Fethiye', city: 'Fethiye', region: 'Muğla', country: 'Türkiye', type: 'city' },
-  { id: 'marmaris', name: 'Marmaris', city: 'Marmaris', region: 'Muğla', country: 'Türkiye', type: 'city' },
-  { id: 'cesme', name: 'Çeşme', city: 'Çeşme', region: 'İzmir', country: 'Türkiye', type: 'city' },
-  { id: 'canakkale', name: 'Çanakkale', city: 'Çanakkale', country: 'Türkiye', type: 'city' },
-  { id: 'trabzon', name: 'Trabzon', city: 'Trabzon', country: 'Türkiye', type: 'city' },
-  { id: 'tzx-airport', name: 'Trabzon Havalimanı', city: 'Trabzon', country: 'Türkiye', type: 'airport', code: 'TZX' }];
+  // Get user location for distance-based sorting
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+        },
+        () => {
+          // Geolocation failed, continue without it
+        },
+        { timeout: 5000 }
+      );
+    }
+  }, []);
 
-
-  // Search suggestions
+  // Search suggestions with advanced search
   useEffect(() => {
     if (value.length < 2) {
-      setSuggestions([]);
+      // Show popular locations when no query
+      const popularResults = searchAdvancedLocations('', {
+        type: type === 'all' ? undefined : type,
+        limit: 8,
+        popularFirst: true
+      });
+      setSuggestions(convertToLocationSuggestions(popularResults));
       setShowSuggestions(false);
       return;
     }
 
     setIsLoading(true);
 
-    // Filter local suggestions
-    const filtered = turkishLocations.filter((location) => {
-      const searchTerm = value.toLowerCase().trim();
-      const matchesType = type === 'all' || location.type === type;
-      const matchesName = location.name.toLowerCase().includes(searchTerm) ||
-      location.city.toLowerCase().includes(searchTerm) ||
-      location.code?.toLowerCase().includes(searchTerm) ||
-      location.region?.toLowerCase().includes(searchTerm);
-
-      return matchesType && matchesName;
+    // Use advanced search with fuzzy matching
+    const results = searchAdvancedLocations(value, {
+      type: type === 'all' ? undefined : type,
+      limit: 10,
+      userLocation,
+      popularFirst: true
     });
 
-    setSuggestions(filtered.slice(0, 8));
+    setSuggestions(convertToLocationSuggestions(results));
     setShowSuggestions(true);
     setIsLoading(false);
-  }, [value, type]);
+  }, [value, type, userLocation]);
+
+  // Convert AdvancedLocationSuggestion to LocationSuggestion
+  const convertToLocationSuggestions = (
+    advancedSuggestions: AdvancedLocationSuggestion[]
+  ): LocationSuggestion[] => {
+    return advancedSuggestions.map(loc => ({
+      id: loc.id,
+      name: loc.name,
+      city: loc.city,
+      region: loc.region,
+      country: loc.country,
+      type: loc.type as any,
+      code: loc.code,
+      coordinates: loc.coordinates
+    }));
+  };
 
   // Click outside handler
   useEffect(() => {

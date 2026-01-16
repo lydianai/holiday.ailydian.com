@@ -103,12 +103,12 @@ const VisualSearchPage: React.FC = () => {
       </Head>
 
       <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-        {/* Demo Badge */}
+        {/* Beta Badge */}
         <div className="absolute top-6 right-6 z-50">
           <DemoBadge
             variant="beta"
             size="lg"
-            tooltip="Visual search is in beta. Basic image similarity matching. Advanced AI vision model integration coming soon."
+            tooltip="Visual search is in beta. AI-powered image similarity matching. Advanced vision models (GPT-4 Vision, Claude Vision) integration in progress."
           />
         </div>
 

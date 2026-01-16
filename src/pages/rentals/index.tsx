@@ -7,6 +7,7 @@
 import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import {
   Home,
@@ -29,10 +30,13 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { ModernHeader } from '../../components/layout/ModernHeader';
-import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../../components/neo-glass';
+import { FuturisticCard, FuturisticButton, NeoSection } from '../../components/neo-glass';
 import antalyaRentals, { type AntalyaRentalProperty } from '../../data/antalya-rentals';
 import { useToast } from '../../context/ToastContext';
 import { useTranslation } from 'next-i18next';
+
+// Client-side animation wrapper - loads after hydration
+const RentalsClientWrapper = dynamic(() => import('../../components/rentals/RentalsClientWrapper'), { ssr: false });
 
 const RentalsPage: React.FC = () => {
   const router = useRouter();
@@ -136,52 +140,14 @@ const RentalsPage: React.FC = () => {
 
       <ModernHeader />
 
-      {/* Hero Section */}
-      <NeoHero
-        title="Tatil Evleri & Villalar"
-        subtitle="Antalya'nın en özel konaklama seçenekleri, %2 daha uygun fiyatlarla"
-        gradient="ocean"
-        height="60vh"
-      >
-        <div className="max-w-4xl mx-auto mt-8">
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-white/60" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Konum, özellik veya bölge ara..."
-              className="w-full pl-16 pr-16 py-5 bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 transition-all text-lg"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            )}
-          </div>
-
-          {/* Quick Filters */}
-          <div className="flex flex-wrap gap-3 mt-6 justify-center">
-            {propertyTypes.map((type) => (
-              <button
-                key={type.value}
-                onClick={() => setSelectedType(type.value)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all backdrop-blur-xl ${
-                  selectedType === type.value
-                    ? 'bg-lydian-bg text-blue-500 shadow-lg scale-105'
-                    : 'bg-lydian-bg/10 text-white hover:bg-lydian-bg/20 border border-white/20'
-                }`}
-              >
-                {type.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </NeoHero>
+      {/* 🎬 CLIENT-SIDE HERO (loads after hydration) */}
+      <RentalsClientWrapper
+        searchQuery={searchQuery}
+        selectedType={selectedType}
+        propertyTypes={propertyTypes}
+        onSearchChange={setSearchQuery}
+        onTypeChange={setSelectedType}
+      />
 
       {/* Stats Section */}
       <NeoSection className="py-8 bg-gradient-to-b from-gray-900 to-gray-950">

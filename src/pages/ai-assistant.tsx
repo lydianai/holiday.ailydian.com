@@ -199,23 +199,23 @@ const AIAssistantPage: NextPage = () => {
       </Head>
 
       <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        {/* Demo Badge */}
+        {/* AI Beta Badge */}
         <div className="absolute top-6 right-6 z-50">
           <DemoBadge
-            variant="ai"
+            variant="beta"
             size="lg"
-            tooltip="This AI assistant uses simulated responses for demonstration. Real AI integration coming soon."
+            tooltip="AI Assistant is in beta. Powered by Claude, GPT-4, Gemini, and Groq models."
           />
         </div>
 
-        {/* Demo Notice Banner */}
-        <div className="bg-purple-50 border-b border-purple-200 text-purple-800 px-4 py-3">
+        {/* Beta Notice Banner */}
+        <div className="bg-blue-50 border-b border-blue-200 text-blue-800 px-4 py-3">
           <div className="max-w-7xl mx-auto flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
             <div>
-              <p className="font-semibold">AI Assistant Demo</p>
+              <p className="font-semibold">AI Assistant (Beta)</p>
               <p className="text-sm mt-1">
-                This AI assistant uses simulated responses generated randomly for demonstration purposes. Real responses will be powered by advanced language models once integrated.
+                Our AI assistant is powered by multiple advanced language models (Claude, GPT-4, Gemini, Groq) with intelligent routing. Currently in beta testing with active improvements.
               </p>
             </div>
           </div>

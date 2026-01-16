@@ -1,15 +1,29 @@
 /**
  * Dynamic Sitemap Generator
- * Generates XML sitemap for all pages in 8 languages
+ * Generates XML sitemap for all pages in 13 languages
  *
  * @module pages/sitemap.xml
- * @seo Google Search Console, Bing Webmaster, Yandex Webmaster
+ * @seo Google Search Console, Bing Webmaster, Yandex Webmaster, Baidu
  */
 
 import { GetServerSideProps } from 'next';
 
 const DOMAIN = 'https://holiday.ailydian.com';
-const LANGUAGES = ['tr', 'en', 'de', 'ru', 'ar', 'fa', 'fr', 'el'];
+const LANGUAGES = [
+  'tr', // Turkish (primary)
+  'en', // English
+  'de', // German
+  'ru', // Russian
+  'ar', // Arabic
+  'fa', // Persian
+  'fr', // French
+  'el', // Greek
+  'es', // Spanish
+  'it', // Italian
+  'pt', // Portuguese
+  'zh', // Chinese
+  'ja', // Japanese
+];
 
 interface SitemapURL {
   loc: string;
