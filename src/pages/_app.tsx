@@ -92,6 +92,13 @@ function MyApp({
                       <meta name="msvalidate.01" content="2F0B3D24686DAB121DC7BA5429119029" />
                       <meta name="yandex-verification" content="travel-lydian-yandex-verification" />
                       <meta name="baidu-site-verification" content="travel-lydian-baidu-verification" />
+                      <meta name="mobile-web-app-capable" content="yes" />
+                      <meta name="apple-mobile-web-app-capable" content="yes" />
+                      <meta name="application-name" content="Holiday AILYDIAN" />
+                      <meta name="apple-mobile-web-app-title" content="Holiday AILYDIAN" />
+                      <meta name="theme-color" content="#667EEA" />
+                      <link rel="manifest" href="/manifest.json" />
+                      <link rel="apple-touch-icon" href="/icon-192.png" />
                     </Head>
                     <DefaultSeo {...seoConfig} />
                     <PageLoader isLoading={loading} />

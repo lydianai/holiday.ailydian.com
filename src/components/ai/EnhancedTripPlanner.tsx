@@ -239,7 +239,7 @@ const EnhancedTripPlanner: React.FC = () => {
                 rows={4}
                 placeholder="e.g., 5-day Istanbul trip for 2 people, budget $2000, love history and food"
                 onChange={(e) => {
-                  // Simple NLP parsing (in production, use OpenAI for better parsing)
+                  // Simple NLP parsing (in production, use Advanced Model for better parsing)
                   const text = e.target.value.toLowerCase();
                   const budgetMatch = text.match(/\$?(\d+)/);
                   const travelersMatch = text.match(/(\d+)\s*(people|person|travelers?)/);

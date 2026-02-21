@@ -31,5 +31,19 @@
         }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/seo-daily",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/price-monitor",
+      "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/cron/weekly-seo-audit",
+      "schedule": "0 3 * * 0"
+    }
   ]
 }

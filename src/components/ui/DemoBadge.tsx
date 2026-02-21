@@ -32,7 +32,7 @@ const getDemoBadgeConfig = (variant: DemoBadgeVariant) => {
       textColor: 'text-purple-700',
       borderColor: 'border-purple-300',
       dotColor: 'bg-purple-500',
-      tooltip: 'This feature is powered by advanced AI models (Claude, GPT-4, Gemini).',
+      tooltip: 'This feature is powered by advanced multi-model AI system with intelligent routing.',
     },
     beta: {
       label: 'BETA',

@@ -1,171 +1,70 @@
+'use client';
+
 /**
- * Theme Toggle Button - Animated Dark/Light Mode Switcher
- * Beautiful neo-glass design with smooth animations
+ * Animated Dark/Light Mode Toggle Button
+ * Smooth transition between themes with visual feedback
  */
 
-import React from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Monitor } from 'lucide-react';
-import { useTheme, Theme } from '../../context/ThemeContext';
 
-interface ThemeToggleProps {
-  className?: string;
-  showLabel?: boolean;
-  variant?: 'icon' | 'dropdown';
-}
+export function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-export const ThemeToggle: React.FC<ThemeToggleProps> = ({
-  className = '',
-  showLabel = false,
-  variant = 'icon',
-}) => {
-  const { theme, resolvedTheme, setTheme } = useTheme();
-  const [showDropdown, setShowDropdown] = React.useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const themes: { value: Theme; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-    { value: 'light', label: 'Aydınlık', icon: Sun },
-    { value: 'dark', label: 'Karanlık', icon: Moon },
-    { value: 'system', label: 'Sistem', icon: Monitor },
-  ];
-
-  const currentTheme = themes.find(t => t.value === theme) || themes[1];
-  const Icon = currentTheme.icon;
-
-  if (variant === 'dropdown') {
+  if (!mounted) {
     return (
-      <div className="relative">
-        <motion.button
-          onClick={() => setShowDropdown(!showDropdown)}
-          className={`relative p-3 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="relative w-6 h-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={theme}
-                initial={{ rotate: -180, opacity: 0, scale: 0 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: 180, opacity: 0, scale: 0 }}
-                transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
-              >
-                <Icon className="w-6 h-6 text-gray-400 dark:text-gray-300 group-hover:text-white dark:group-hover:text-white" />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Glow effect */}
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 via-purple-500/20 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-        </motion.button>
-
-        {/* Dropdown */}
-        <AnimatePresence>
-          {showDropdown && (
-            <>
-              {/* Backdrop */}
-              <div
-                className="fixed inset-0 z-40"
-                onClick={() => setShowDropdown(false)}
-              />
-
-              {/* Dropdown Menu */}
-              <motion.div
-                initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="absolute right-0 mt-2 w-48 z-50 bg-lydian-bg/10 dark:bg-gray-900/90 backdrop-blur-2xl rounded-2xl border border-white/20 dark:border-white/10 shadow-2xl overflow-hidden"
-              >
-                {themes.map((themeOption) => {
-                  const OptionIcon = themeOption.icon;
-                  const isActive = theme === themeOption.value;
-
-                  return (
-                    <button
-                      key={themeOption.value}
-                      onClick={() => {
-                        setTheme(themeOption.value);
-                        setShowDropdown(false);
-                      }}
-                      className={`w-full px-4 py-3 flex items-center gap-3 transition-all duration-200 ${
-                        isActive
-                          ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white'
-                          : 'text-gray-400 dark:text-gray-300 hover:bg-white/5 dark:hover:bg-white/5'
-                      }`}
-                    >
-                      <OptionIcon className="w-5 h-5" />
-                      <span className="font-medium">{themeOption.label}</span>
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeTheme"
-                          className="ml-auto w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
-                          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                    </button>
-                  );
-                })}
-
-                {/* Footer hint */}
-                <div className="px-4 py-2 border-t border-white/10 dark:border-white/5">
-                  <p className="text-xs text-gray-300 dark:text-gray-300">
-                    {theme === 'system' && (
-                      <>Sistem: {resolvedTheme === 'dark' ? 'Karanlık' : 'Aydınlık'}</>
-                    )}
-                    {theme !== 'system' && <>Manuel seçim aktif</>}
-                  </p>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-      </div>
+      <div className="fixed top-20 right-4 z-50 w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse" />
     );
   }
 
-  // Icon variant (simple toggle)
+  const isDark = theme === 'dark';
+
   return (
     <motion.button
-      onClick={() => {
-        // Toggle between light and dark (skip system for quick toggle)
-        if (theme === 'light') setTheme('dark');
-        else if (theme === 'dark') setTheme('light');
-        else setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-      }}
-      className={`relative p-3 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      aria-label="Toggle theme"
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.1 }}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="fixed top-20 right-4 z-50 p-3 rounded-full shadow-lg transition-colors duration-300
+        bg-gray-200 dark:bg-gray-800
+        hover:bg-gray-300 dark:hover:bg-gray-700
+        border-2 border-gray-300 dark:border-gray-600"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <div className="relative w-6 h-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={resolvedTheme}
-            initial={{ rotate: -180, opacity: 0, scale: 0 }}
-            animate={{ rotate: 0, opacity: 1, scale: 1 }}
-            exit={{ rotate: 180, opacity: 0, scale: 0 }}
-            transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
-          >
-            {resolvedTheme === 'dark' ? (
-              <Moon className="w-6 h-6 text-blue-400 dark:text-blue-300" />
-            ) : (
-              <Sun className="w-6 h-6 text-yellow-500" />
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={isDark ? 'dark' : 'light'}
+          initial={{ y: -20, opacity: 0, rotate: -180 }}
+          animate={{ y: 0, opacity: 1, rotate: 0 }}
+          exit={{ y: 20, opacity: 0, rotate: 180 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="relative"
+        >
+          {isDark ? (
+            <Moon className="w-6 h-6 text-gray-800" strokeWidth={2} />
+          ) : (
+            <Sun className="w-6 h-6 text-yellow-600" strokeWidth={2} />
+          )}
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Glow effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 via-purple-500/20 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-
-      {/* Label */}
-      {showLabel && (
-        <span className="ml-2 text-sm font-medium text-gray-400 dark:text-gray-300 group-hover:text-white dark:group-hover:text-white">
-          {resolvedTheme === 'dark' ? 'Karanlık' : 'Aydınlık'}
-        </span>
-      )}
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        animate={{
+          boxShadow: isDark
+            ? '0 0 20px rgba(255, 255, 255, 0.3)'
+            : '0 0 20px rgba(251, 191, 36, 0.3)',
+        }}
+        transition={{ duration: 0.3 }}
+      />
     </motion.button>
   );
-};
+}
 
 export default ThemeToggle;

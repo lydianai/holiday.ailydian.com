@@ -1,37 +1,71 @@
 {
-  "name": "Travel.LyDian Enterprise",
-  "short_name": "Travel.LyDian",
-  "description": "Enterprise-grade AI-powered global tourism platform",
+  "name": "Holiday AILYDIAN - Luxury Travel & Tourism Platform",
+  "short_name": "Holiday AILYDIAN",
+  "description": "AI-powered luxury travel platform featuring blockchain payments, VR tours, and personalized experiences across 13 languages",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "background_color": "#0F172A",
+  "theme_color": "#667EEA",
   "orientation": "portrait-primary",
-  "categories": ["travel", "business", "productivity"],
+  "scope": "/",
   "lang": "tr",
   "dir": "ltr",
-  "scope": "/",
+  "categories": ["travel", "tourism", "lifestyle"],
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ],
   "shortcuts": [
     {
-      "name": "AI Dashboard",
-      "short_name": "Dashboard",
-      "description": "Access your AI-powered travel dashboard",
-      "url": "/dashboard",
-      "icons": [{ "src": "/icons/dashboard.png", "sizes": "96x96" }]
+      "name": "Search Tours",
+      "short_name": "Tours",
+      "description": "Browse and book luxury tours",
+      "url": "/tours",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Book Transfer",
+      "short_name": "Transfer",
+      "description": "Airport and city transfers",
+      "url": "/transfers",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Rent Properties",
+      "short_name": "Rentals",
+      "description": "Luxury vacation rentals",
+      "url": "/rentals",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }

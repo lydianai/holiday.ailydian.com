@@ -82,7 +82,7 @@ export const FEATURE_REGISTRY: Record<string, Feature> = {
       staging: true,
       production: true,
     },
-    notes: 'Powered by Claude, GPT-4, Gemini, and Groq AI models. Multi-provider intelligent routing.',
+    notes: 'Powered by advanced multi-model AI system with heterogeneous intelligent routing. Auto cost optimization active.',
   },
   ai_recommendations: {
     id: 'ai_recommendations',

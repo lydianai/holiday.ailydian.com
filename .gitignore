@@ -69,3 +69,12 @@ validation-reports/
 # AILYDIAN Integration
 .AISystem/
 .env.production
+.env.production.local
+build/
+dist/
+node_modules/
+.env.*
+!.env.example
+.vercel/
+.turbo/
+coverage/

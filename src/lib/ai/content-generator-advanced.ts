@@ -3,7 +3,7 @@
  * Production-grade content creation for 1378 pages across 8 languages
  *
  * Features:
- * - Multi-provider AI support (OpenAI, Anthropic, Google AI, Groq)
+ * - Multi-provider AI support (Advanced Model, ai-provider, Google AI, Groq)
  * - Smart caching and rate limiting
  * - Automatic retry with exponential backoff
  * - Content quality validation
@@ -12,8 +12,8 @@
  * - Multi-language support
  */
 
-import OpenAI from 'openai';
-import Anthropic from '@anthropic-ai/sdk';
+import Advanced Model from 'ai-provider';
+import ai-provider from '@ai-provider-ai/sdk';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import Groq from 'groq-sdk';
 import { LRUCache } from 'lru-cache';
@@ -25,7 +25,7 @@ import crypto from 'crypto';
 
 export type Language = 'tr' | 'en' | 'de' | 'ru' | 'ar' | 'fa' | 'fr' | 'el';
 export type ContentType = 'tour' | 'hotel' | 'transfer' | 'car-rental' | 'destination' | 'city' | 'rental';
-export type AIProvider = 'openai' | 'anthropic' | 'google' | 'groq';
+export type AIProvider = 'ai-provider' | 'ai-provider' | 'google' | 'groq';
 
 export interface ContentConfig {
   type: ContentType;
@@ -124,8 +124,8 @@ export interface GeneratorConfig {
 
 export class AdvancedContentGenerator {
   private provider: AIProvider;
-  private openai?: OpenAI;
-  private anthropic?: Anthropic;
+  private ai-provider?: Advanced Model;
+  private ai-provider?: ai-provider;
   private google?: GoogleGenerativeAI;
   private groq?: Groq;
 
@@ -134,7 +134,7 @@ export class AdvancedContentGenerator {
   private rateLimiter: Map<string, number[]>;
 
   constructor(config: GeneratorConfig) {
-    this.provider = config.provider || 'openai';
+    this.provider = config.provider || 'ai-provider';
     this.config = {
       provider: this.provider,
       apiKey: config.apiKey,
@@ -168,11 +168,11 @@ export class AdvancedContentGenerator {
    */
   private initializeProvider(): void {
     switch (this.provider) {
-      case 'openai':
-        this.openai = new OpenAI({ apiKey: this.config.apiKey });
+      case 'ai-provider':
+        this.ai-provider = new Advanced Model({ apiKey: this.config.apiKey });
         break;
-      case 'anthropic':
-        this.anthropic = new Anthropic({ apiKey: this.config.apiKey });
+      case 'ai-provider':
+        this.ai-provider = new ai-provider({ apiKey: this.config.apiKey });
         break;
       case 'google':
         this.google = new GoogleGenerativeAI(this.config.apiKey);
@@ -188,8 +188,8 @@ export class AdvancedContentGenerator {
    */
   private getDefaultModel(provider: AIProvider): string {
     const models: Record<AIProvider, string> = {
-      openai: 'gpt-4-turbo-preview',
-      anthropic: 'claude-3-5-sonnet-20241022',
+      ai-provider: 'gpt-4-turbo-preview',
+      ai-provider: 'claude-3-5-sonnet-20241022',
       google: 'gemini-pro',
       groq: 'mixtral-8x7b-32768',
     };
@@ -239,11 +239,11 @@ export class AdvancedContentGenerator {
     let response: any;
 
     switch (this.provider) {
-      case 'openai':
-        response = await this.generateWithOpenAI(prompt, config);
+      case 'ai-provider':
+        response = await this.generateWithAdvanced Model(prompt, config);
         break;
-      case 'anthropic':
-        response = await this.generateWithAnthropic(prompt, config);
+      case 'ai-provider':
+        response = await this.generateWithai-provider(prompt, config);
         break;
       case 'google':
         response = await this.generateWithGoogle(prompt, config);
@@ -285,12 +285,12 @@ export class AdvancedContentGenerator {
   }
 
   /**
-   * Generate content with OpenAI
+   * Generate content with Advanced Model
    */
-  private async generateWithOpenAI(prompt: string, config: ContentConfig): Promise<any> {
-    if (!this.openai) throw new Error('OpenAI not initialized');
+  private async generateWithAdvanced Model(prompt: string, config: ContentConfig): Promise<any> {
+    if (!this.ai-provider) throw new Error('Advanced Model not initialized');
 
-    const response = await this.openai.chat.completions.create({
+    const response = await this.ai-provider.chat.completions.create({
       model: this.config.model,
       messages: [
         {
@@ -311,12 +311,12 @@ export class AdvancedContentGenerator {
   }
 
   /**
-   * Generate content with Anthropic Claude
+   * Generate content with ai-provider Advanced Model
    */
-  private async generateWithAnthropic(prompt: string, config: ContentConfig): Promise<any> {
-    if (!this.anthropic) throw new Error('Anthropic not initialized');
+  private async generateWithai-provider(prompt: string, config: ContentConfig): Promise<any> {
+    if (!this.ai-provider) throw new Error('ai-provider not initialized');
 
-    const response = await this.anthropic.messages.create({
+    const response = await this.ai-provider.messages.create({
       model: this.config.model,
       max_tokens: this.config.maxTokens,
       temperature: this.config.temperature,
@@ -334,7 +334,7 @@ export class AdvancedContentGenerator {
   }
 
   /**
-   * Generate content with Google Gemini
+   * Generate content with Google Advanced Model
    */
   private async generateWithGoogle(prompt: string, config: ContentConfig): Promise<any> {
     if (!this.google) throw new Error('Google AI not initialized');
