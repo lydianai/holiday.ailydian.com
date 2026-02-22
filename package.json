@@ -109,7 +109,7 @@
     "next-seo": "^6.4.0",
     "next-themes": "^0.4.6",
     "node-cache": "^5.1.2",
-    "nodemailer": "^7.0.6",
+    "nodemailer": "^8.0.1",
     "openai": "^6.15.0",
     "prisma": "^6.16.2",
     "process": "^0.11.10",
