@@ -1,13 +1,54 @@
+<div align="center">
+
 # Travel LyDian - Enterprise Global Tourism Platform
 
-> 3D Immersive Travel Experience with Real-Time Booking and Web3 Loyalty
+<p><em>3D Immersive Travel Experiences with Real-Time Booking Engine and Web3 Loyalty Rewards</em></p>
 
-[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-15.x-black.svg)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.x-61dafb.svg)](https://react.dev/)
-[![Three.js](https://img.shields.io/badge/Three.js-r168-black.svg)](https://threejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791.svg)](https://www.postgresql.org/)
+<p>
+  <a href="#overview"><img src="https://img.shields.io/badge/Docs-Overview-blue?style=for-the-badge" alt="Overview"></a>
+  <a href="#platform-architecture"><img src="https://img.shields.io/badge/Docs-Architecture-purple?style=for-the-badge" alt="Architecture"></a>
+  <a href="#key-features"><img src="https://img.shields.io/badge/Docs-Features-green?style=for-the-badge" alt="Features"></a>
+  <a href="#getting-started"><img src="https://img.shields.io/badge/Docs-Setup-orange?style=for-the-badge" alt="Setup"></a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/License-Proprietary-red?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/Three.js-r168-black?style=flat-square" alt="Three.js">
+  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Locales-25%2B-0052CC?style=flat-square" alt="Languages">
+</p>
+
+<br>
+
+<table>
+<tr>
+<td width="50%">
+
+**Platform Highlights**
+- Immersive Three.js 3D destination previews before booking
+- Real-time booking confirmation via WebSocket engine
+- 25+ language support with next-intl localization
+- Web3 ERC-20 loyalty token system on blockchain
+
+</td>
+<td width="50%">
+
+**Technical Excellence**
+- Interactive Leaflet maps for property and destination discovery
+- PDF itinerary generation and voice-guided audio tours
+- Sentry enterprise error tracking across all runtimes
+- Framer Motion and GSAP premium animation system
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
 
 ## Overview
 
@@ -47,21 +88,19 @@ graph TD
 - **Voice-Guided Tours** — Audio tour assistant for destinations
 - **Enterprise Error Tracking** — Sentry integration across client, server, and edge runtimes
 
-## Technology Stack
+## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend Framework | Next.js 15, React 19 |
-| 3D Engine | Three.js, React Three Fiber |
-| Maps | Leaflet |
-| Animation | Framer Motion, GSAP |
-| Real-Time | Socket.io |
-| Internationalization | next-intl (25+ languages) |
-| Blockchain | Web3.js, Ethers.js, Hardhat |
-| Database | PostgreSQL 16, Prisma ORM |
-| Error Tracking | Sentry |
-| Language | TypeScript |
-| Container | Docker |
+| Layer | Technology | Badge |
+|:------|:-----------|:------|
+| Frontend Framework | Next.js 15, React 19 | ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js) ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black) |
+| 3D Engine | Three.js, React Three Fiber | ![Three.js](https://img.shields.io/badge/Three.js-r168-black?style=flat-square) |
+| Maps | Leaflet | ![Leaflet](https://img.shields.io/badge/Leaflet-latest-199900?style=flat-square) |
+| Animation | Framer Motion, GSAP | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-latest-black?style=flat-square) |
+| Real-Time | Socket.io | ![Socket.io](https://img.shields.io/badge/Socket.io-latest-black?style=flat-square&logo=socket.io) |
+| Internationalization | next-intl (25+ languages) | ![next-intl](https://img.shields.io/badge/next--intl-25%2B_locales-0052CC?style=flat-square) |
+| Blockchain | Web3.js, Ethers.js, Hardhat | ![Web3](https://img.shields.io/badge/Web3.js-latest-F16822?style=flat-square) |
+| Database | PostgreSQL 16, Prisma ORM | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql&logoColor=white) |
+| Error Tracking | Sentry | ![Sentry](https://img.shields.io/badge/Sentry-latest-362D59?style=flat-square&logo=sentry) |
 
 ## Project Structure
 

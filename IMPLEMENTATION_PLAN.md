@@ -666,6 +666,6 @@ Bu implementasyon planı:
 
 ---
 
-**Hazırlayan:** Claude Code + Emrah Sardag
+**Hazırlayan:** Claude Code + Lydian
 **Tarih:** 22 Aralık 2025
 **Versiyon:** 1.0.0

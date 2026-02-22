@@ -5,7 +5,7 @@
 **Proje Adı:** Travel LyDian Enterprise - Araç Kiralama & Transfer Servisi Entegrasyonu
 **Tarih:** 22 Aralık 2025
 **Versiyon:** 2.0.0
-**Geliştirici:** Claude Code + Emrah Sardag
+**Geliştirici:** Claude Code + Lydian
 **Platform:** Next.js 15.5.9 + TypeScript + Tailwind CSS
 
 ---
@@ -507,7 +507,7 @@ Bu proje, Travel LyDian platformuna **2 yeni iş kolu** ekleyerek:
 
 ---
 
-**Hazırlayan:** Claude Code + Emrah Sardag
+**Hazırlayan:** Claude Code + Lydian
 **Tarih:** 22 Aralık 2025
 **Versiyon:** 2.0.0
 **Lisans:** Proprietary - Travel LyDian
