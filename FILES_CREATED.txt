@@ -5,7 +5,7 @@
 ================================================================================
 
 📁 PROJECT STRUCTURE
-└── /Users/sardag/Desktop/travel-ailydian-enterprise/
+└── /home/lydian/Masaüstü/PROJELER/travel-ailydian-enterprise/
     │
     ├── 📄 DOCUMENTATION (4 files)
     │   ├── ANIMATED_COMPONENTS_README.md    (12KB) - Complete API docs

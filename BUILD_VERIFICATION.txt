@@ -38,7 +38,7 @@ BUILD ID: hQ3jxKX8H7QZ_bSGwQ5F4
 
 4. BUILD REPORT CREATION
    ✅ Comprehensive BUILD_AGENT_REPORT.md generated (17 KB, 622 lines)
-   ✅ Report location: /Users/sardag/Desktop/PROJELER/travel.ailydian.com/docs/BUILD_AGENT_REPORT.md
+   ✅ Report location: /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/docs/BUILD_AGENT_REPORT.md
    ✅ Report includes:
       - Executive Summary
       - Environment Verification (Node.js, npm, TypeScript, Next.js)
@@ -56,7 +56,7 @@ BUILD ID: hQ3jxKX8H7QZ_bSGwQ5F4
                              BUILD ARTIFACTS
 ================================================================================
 
-Output Location: /Users/sardag/Desktop/PROJELER/travel.ailydian.com/.next/
+Output Location: /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/.next/
 
 Directory Structure:
 ├── .next/standalone/               (2.6 GB) - Production runtime
@@ -224,7 +224,7 @@ Total Potential Savings: ~650-850 KB (could improve FCP by ~200-300ms)
 ================================================================================
 
 Generated Files:
-  ✅ /Users/sardag/Desktop/PROJELER/travel.ailydian.com/docs/BUILD_AGENT_REPORT.md
+  ✅ /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/docs/BUILD_AGENT_REPORT.md
      - Comprehensive 17 KB report with 622 lines
      - Includes all analysis, metrics, and recommendations
      - Ready for team review and documentation

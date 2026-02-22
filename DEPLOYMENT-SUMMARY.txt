@@ -12,7 +12,7 @@ CRITICAL FIXES APPLIED
 1. LOCALE CONFIGURATION ERROR - RESOLVED ✅
    Problem: "Invalid locale returned from getStaticPaths for /explore/destinations/[slug]"
    Solution: Added i18n configuration to next.config.js
-   File: /Users/sardag/Desktop/PROJELER/travel.ailydian.com/next.config.js
+   File: /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/next.config.js
    Lines: 17-21
    
    Added:
@@ -23,14 +23,14 @@ CRITICAL FIXES APPLIED
    }
 
 2. PRODUCTION ENVIRONMENT - CONFIGURED ✅
-   File: /Users/sardag/Desktop/PROJELER/travel.ailydian.com/.env.production
+   File: /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/.env.production
    - Domain updated to holiday.ailydian.com
    - Secure secrets generated (MUST be replaced in Vercel)
    - Optional services properly marked
    - Database made optional (app runs without DB)
 
 3. VERCEL CONFIGURATION - OPTIMIZED ✅
-   File: /Users/sardag/Desktop/PROJELER/travel.ailydian.com/vercel.json
+   File: /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com/vercel.json
    - Domain: holiday.ailydian.com
    - Function memory: 512 MB
    - Timeout: 15 seconds
@@ -94,7 +94,7 @@ DEPLOYMENT STEPS
    Do this TWICE - once for NEXTAUTH_SECRET, once for JWT_SECRET
    
 2. PUSH TO GIT
-   cd /Users/sardag/Desktop/PROJELER/travel.ailydian.com
+   cd /home/lydian/Masaüstü/PROJELER/PROJELER/travel.ailydian.com
    git add next.config.js .env.production vercel.json
    git commit -m "feat: prepare for ZERO-ERROR Vercel deployment to holiday.ailydian.com"
    git push origin main
