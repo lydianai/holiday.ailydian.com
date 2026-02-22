@@ -134,7 +134,7 @@
     "tailwindcss": "^3.3.0",
     "three": "^0.180.0",
     "typescript": "^5.9.2",
-    "uuid": "^9.0.0",
+    "uuid": "^13.0.0",
     "viem": "^2.43.4",
     "wagmi": "^3.1.4",
     "web-vitals": "^5.1.0",
