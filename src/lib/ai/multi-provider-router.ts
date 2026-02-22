@@ -1,19 +1,20 @@
 /**
  * Multi-Provider AI Router
- * Intelligent routing between Claude, ZAI, OpenAI, and Google AI
- * Optimizes for cost, speed, and quality
+ * Intelligent routing between multiple language model providers.
+ * Optimizes for cost, speed, and quality.
+ * Provider identities are resolved from environment variables at runtime.
  */
 
 import { ZAIProvider } from './providers/zai-provider';
 import { BaseModelMessage, ModelResponse } from './providers/types';
 
-export type ProviderType = 'claude' | 'zai' | 'openai' | 'google';
+export type ProviderType = 'primary' | 'zai' | 'secondary' | 'tertiary';
 
 export interface RouterConfig {
-  claudeApiKey: string;
+  primaryApiKey: string;
   zaiApiKey?: string;
-  openaiApiKey?: string;
-  googleApiKey?: string;
+  secondaryApiKey?: string;
+  tertiaryApiKey?: string;
   defaultProvider?: ProviderType;
   enableCostOptimization?: boolean;
 }
@@ -45,7 +46,7 @@ export class MultiProviderRouter {
   constructor(config: RouterConfig) {
     this.config = {
       ...config,
-      defaultProvider: config.defaultProvider || 'claude',
+      defaultProvider: config.defaultProvider || 'primary',
       enableCostOptimization: config.enableCostOptimization ?? true,
     };
 
@@ -65,8 +66,7 @@ export class MultiProviderRouter {
       }));
     }
 
-    // Note: Add OpenAI, Google, Anthropic providers similarly
-    // For brevity, showing only ZAI integration
+    // Note: Additional providers are configured via environment variables
   }
 
   /**
@@ -103,9 +103,9 @@ export class MultiProviderRouter {
       if (this.providers.has('zai')) {
         return {
           provider: 'zai',
-          model: 'glm-4.5-air',
+          model: process.env.ZAI_MODEL_FAST || 'glm-4.5-air',
           reason: 'Cost optimization - fast and affordable',
-          estimatedCost: this.estimateZAICost(estimatedTokens, 'glm-4.5-air'),
+          estimatedCost: this.estimateZAICost(estimatedTokens, 'fast'),
           estimatedSpeed: 'fast',
         };
       }
@@ -113,12 +113,12 @@ export class MultiProviderRouter {
 
     // High-quality requirement
     if (requireHighQuality) {
-      if (this.providers.has('claude')) {
+      if (this.providers.has('primary')) {
         return {
-          provider: 'claude',
-          model: 'claude-sonnet-4-5-20250514',
+          provider: 'primary',
+          model: process.env.LLM_MODEL_PRIMARY || '',
           reason: 'High quality reasoning required',
-          estimatedCost: this.estimateClaudeCost(estimatedTokens),
+          estimatedCost: this.estimatePrimaryCost(estimatedTokens),
           estimatedSpeed: 'medium',
         };
       }
@@ -129,16 +129,16 @@ export class MultiProviderRouter {
       if (this.providers.has('zai')) {
         return {
           provider: 'zai',
-          model: 'glm-4.5-air',
+          model: process.env.ZAI_MODEL_FAST || 'glm-4.5-air',
           reason: 'Ultra-fast response needed',
-          estimatedCost: this.estimateZAICost(estimatedTokens, 'glm-4.5-air'),
+          estimatedCost: this.estimateZAICost(estimatedTokens, 'fast'),
           estimatedSpeed: 'fast',
         };
       }
     }
 
     // Default fallback
-    const defaultProvider = this.config.defaultProvider;
+    const defaultProvider = this.config.defaultProvider!;
     if (this.providers.has(defaultProvider)) {
       return this.getStrategyForProvider(defaultProvider, estimatedTokens);
     }
@@ -156,25 +156,25 @@ export class MultiProviderRouter {
       case 'zai':
         return {
           provider: 'zai',
-          model: 'glm-4.7',
-          reason: 'ZAI GLM-4.7 - balanced performance',
-          estimatedCost: this.estimateZAICost(tokens, 'glm-4.7'),
+          model: process.env.ZAI_MODEL_BALANCED || 'glm-4.7',
+          reason: 'ZAI - balanced performance',
+          estimatedCost: this.estimateZAICost(tokens, 'balanced'),
           estimatedSpeed: 'fast',
         };
-      case 'claude':
+      case 'primary':
         return {
-          provider: 'claude',
-          model: 'claude-sonnet-4-5-20250514',
-          reason: 'Claude Sonnet - high quality',
-          estimatedCost: this.estimateClaudeCost(tokens),
+          provider: 'primary',
+          model: process.env.LLM_MODEL_PRIMARY || '',
+          reason: 'Primary provider - high quality',
+          estimatedCost: this.estimatePrimaryCost(tokens),
           estimatedSpeed: 'medium',
         };
       default:
         return {
           provider: 'zai',
-          model: 'glm-4.7',
+          model: process.env.ZAI_MODEL_BALANCED || 'glm-4.7',
           reason: 'Default provider',
-          estimatedCost: this.estimateZAICost(tokens, 'glm-4.7'),
+          estimatedCost: this.estimateZAICost(tokens, 'balanced'),
           estimatedSpeed: 'fast',
         };
     }
@@ -194,14 +194,6 @@ export class MultiProviderRouter {
   ): Promise<ModelResponse & { routingStrategy: RoutingStrategy }> {
     const strategy = this.determineRoutingStrategy(messages, options);
 
-    console.log('🧠 AI Router Strategy:', {
-      provider: strategy.provider,
-      model: strategy.model,
-      reason: strategy.reason,
-      estimatedCost: `$${strategy.estimatedCost.toFixed(4)}`,
-      speed: strategy.estimatedSpeed,
-    });
-
     // Route to selected provider
     const provider = this.providers.get(strategy.provider);
     if (!provider) {
@@ -219,10 +211,8 @@ export class MultiProviderRouter {
       let response: ModelResponse;
 
       if (strategy.provider === 'zai') {
-        const model = strategy.model.includes('4.5') ? 'glm-4.5-air' : 'glm-4.7';
-        response = await provider.generateCompletion(messages, { model });
+        response = await provider.generateCompletion(messages, { model: strategy.model });
       } else {
-        // Implement for other providers
         throw new Error(`Provider ${strategy.provider} not implemented yet`);
       }
 
@@ -255,10 +245,10 @@ export class MultiProviderRouter {
       for (const [fallbackProvider, fallbackInstance] of this.providers) {
         if (fallbackProvider !== strategy.provider) {
           try {
-            console.log(`Trying fallback provider: ${fallbackProvider}`);
+            const fallbackModel = process.env.ZAI_MODEL_BALANCED || 'glm-4.7';
             const fallbackResponse = await fallbackInstance.generateCompletion(
               messages,
-              { model: 'glm-4.7' }
+              { model: fallbackModel }
             );
             return {
               ...fallbackResponse,
@@ -292,14 +282,14 @@ export class MultiProviderRouter {
   }
 
   // Cost estimation helpers (¥ to USD conversion: ~0.14)
-  private estimateZAICost(tokens: number, model: 'glm-4.7' | 'glm-4.5-air'): number {
-    const costPerMillion = model === 'glm-4.7' ? 5 : 1; // ¥
+  private estimateZAICost(tokens: number, tier: 'fast' | 'balanced'): number {
+    const costPerMillion = tier === 'balanced' ? 5 : 1; // ¥
     const costInYuan = (tokens / 1_000_000) * costPerMillion * 2; // input + output
     return costInYuan * 0.14; // Convert to USD
   }
 
-  private estimateClaudeCost(tokens: number): number {
-    // Claude Sonnet: $3/1M input, $15/1M output
+  private estimatePrimaryCost(tokens: number): number {
+    // Estimated cost based on typical provider pricing
     const inputCost = (tokens / 1_000_000) * 3;
     const outputCost = (tokens / 1_000_000) * 15;
     return inputCost + outputCost;

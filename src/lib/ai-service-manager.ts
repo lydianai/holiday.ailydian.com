@@ -1,10 +1,10 @@
 import OpenAI from 'openai';
 import logger from './logger';
 
-// AI service configuration
+// AI service configuration - model identifiers resolved from environment variables
 const AI_CONFIG = {
-  openai: {
-    model: process.env.OPENAI_MODEL || 'gpt-4-turbo-preview',
+  llm: {
+    model: process.env.LLM_MODEL_PRIMARY || process.env.LLM_API_MODEL || '',
     maxTokens: 1000,
     temperature: 0.7,
   },
@@ -14,9 +14,10 @@ const AI_CONFIG = {
   }
 };
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+// Initialize language model provider client
+const llmClient = new OpenAI({
+  apiKey: process.env.LLM_API_KEY || process.env.OPENAI_API_KEY,
+  baseURL: process.env.LLM_BASE_URL,
 });
 
 // AI service interfaces
@@ -54,21 +55,21 @@ class AIServiceManager {
   ): Promise<AIRecommendationResponse> {
     try {
       const prompt = this.buildRecommendationPrompt(request);
-      
-      const completion = await openai.chat.completions.create({
-        model: AI_CONFIG.openai.model,
+
+      const completion = await llmClient.chat.completions.create({
+        model: AI_CONFIG.llm.model,
         messages: [
           {
             role: 'system',
-            content: 'Sen Holiday.AILYDIAN\'ın uzman seyahat AI asistanısın. Blockchain tabanlı ödemeler, VR turlar ve sürdürülebilir turizm konularında uzmanısın.'
+            content: 'You are an expert travel assistant for Holiday.AILYDIAN. You specialize in blockchain-based payments, VR tours, and sustainable tourism.'
           },
           {
             role: 'user',
             content: prompt
           }
         ],
-        max_tokens: AI_CONFIG.openai.maxTokens,
-        temperature: AI_CONFIG.openai.temperature,
+        max_tokens: AI_CONFIG.llm.maxTokens,
+        temperature: AI_CONFIG.llm.temperature,
         response_format: { type: 'json_object' }
       });
 
@@ -83,7 +84,7 @@ class AIServiceManager {
   // Private helper methods
   private static buildRecommendationPrompt(request: AIRecommendationRequest): string {
     const { preferences = {} } = request;
-    
+
     return `Generate personalized travel recommendations based on:
 
 Preferences:
@@ -91,35 +92,35 @@ Preferences:
 - Travel Style: ${preferences.travelStyle || 'Not specified'}
 - Interests: ${preferences.interests?.join(', ') || 'Not specified'}
 - Duration: ${preferences.duration || 'Not specified'} days
-- Language: ${preferences.language || 'Turkish'}
+- Language: ${preferences.language || 'English'}
 
-Provide 5 destination recommendations with detailed reasons, cost estimates, and AI insights.`;
+Provide 5 destination recommendations with detailed reasons, cost estimates, and insights.`;
   }
 
   // Health check for AI services
   static async healthCheck(): Promise<{
-    openai: boolean;
+    llm: boolean;
     overallHealth: 'healthy' | 'degraded' | 'unhealthy';
   }> {
     const health: {
-      openai: boolean;
+      llm: boolean;
       overallHealth: 'healthy' | 'degraded' | 'unhealthy';
     } = {
-      openai: false,
+      llm: false,
       overallHealth: 'unhealthy'
     };
 
     try {
-      // Test OpenAI connection
-      await openai.chat.completions.create({
-        model: process.env.OPENAI_FALLBACK_MODEL || 'gpt-3.5-turbo',
+      // Test language model provider connection
+      await llmClient.chat.completions.create({
+        model: process.env.LLM_MODEL_FAST || AI_CONFIG.llm.model,
         messages: [{ role: 'user', content: 'Hello' }],
         max_tokens: 5
       });
-      health.openai = true;
+      health.llm = true;
       health.overallHealth = 'healthy';
     } catch (error) {
-      logger.error('OpenAI health check failed:', error as Error, { component: 'AiServiceManager' });
+      logger.error('Language model provider health check failed:', error as Error, { component: 'AiServiceManager' });
     }
 
     return health;

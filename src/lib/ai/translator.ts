@@ -3,7 +3,7 @@
  * Multi-provider translation with quality optimization
  *
  * Features:
- * - Multi-provider support (OpenAI, Google Translate, DeepL)
+ * - Multi-provider support (Language Model Provider, Google Translate, DeepL)
  * - Smart caching
  * - Batch translation
  * - Context-aware translation
@@ -22,7 +22,7 @@ import crypto from 'crypto';
 export type Language = 'tr' | 'en' | 'de' | 'ru' | 'ar' | 'fa' | 'fr' | 'el';
 
 export interface TranslationConfig {
-  provider?: 'openai' | 'google' | 'deepl';
+  provider?: 'llm' | 'google' | 'deepl';
   apiKey: string;
   cacheEnabled?: boolean;
   quality?: 'fast' | 'balanced' | 'high';
@@ -79,7 +79,7 @@ const LANGUAGE_NAMES: Record<Language, { native: string; english: string; code: 
 // ============================================================================
 
 export class AdvancedTranslator {
-  private provider: 'openai' | 'google' | 'deepl';
+  private provider: 'llm' | 'google' | 'deepl';
   private openai?: OpenAI;
   private config: Required<Omit<TranslationConfig, 'apiKey' | 'terminology'>> & {
     terminology: Map<string, Map<Language, string>>;
@@ -87,7 +87,7 @@ export class AdvancedTranslator {
   private cache: LRUCache<string, TranslationResult>;
 
   constructor(config: TranslationConfig) {
-    this.provider = config.provider || 'openai';
+    this.provider = config.provider || 'llm';
 
     this.config = {
       provider: this.provider,
@@ -97,8 +97,8 @@ export class AdvancedTranslator {
       terminology: config.terminology || new Map(),
     };
 
-    // Initialize provider
-    if (this.provider === 'openai') {
+    // Initialize language model provider client
+    if (this.provider === 'llm') {
       this.openai = new OpenAI({ apiKey: config.apiKey });
     }
 
@@ -181,7 +181,7 @@ export class AdvancedTranslator {
     options: TranslationOptions
   ): Promise<string> {
     switch (this.provider) {
-      case 'openai':
+      case 'llm':
         return this.translateWithOpenAI(text, fromLocale, toLocale, options);
       case 'google':
         return this.translateWithGoogle(text, fromLocale, toLocale, options);
@@ -193,7 +193,7 @@ export class AdvancedTranslator {
   }
 
   /**
-   * Translate with OpenAI
+   * Translate with language model provider
    */
   private async translateWithOpenAI(
     text: string,
@@ -201,7 +201,7 @@ export class AdvancedTranslator {
     toLocale: Language,
     options: TranslationOptions
   ): Promise<string> {
-    if (!this.openai) throw new Error('OpenAI not initialized');
+    if (!this.openai) throw new Error('Language model provider not initialized');
 
     const fromLang = LANGUAGE_NAMES[fromLocale];
     const toLang = LANGUAGE_NAMES[toLocale];
@@ -420,12 +420,13 @@ Important: Return ONLY the translated text, without any explanations or addition
   }
 
   private getModelForQuality(quality: 'fast' | 'balanced' | 'high'): string {
-    const models = {
-      fast: 'gpt-3.5-turbo',
-      balanced: 'gpt-4-turbo-preview',
-      high: 'gpt-4-turbo-preview',
+    // Model identifiers resolved from environment variables at runtime
+    const models: Record<string, string> = {
+      fast: process.env.LLM_TRANSLATION_MODEL_FAST || process.env.LLM_MODEL_FAST || '',
+      balanced: process.env.LLM_TRANSLATION_MODEL_BALANCED || process.env.LLM_MODEL_BALANCED || '',
+      high: process.env.LLM_TRANSLATION_MODEL_HIGH || process.env.LLM_MODEL_PRIMARY || '',
     };
-    return models[quality];
+    return models[quality] || '';
   }
 
   private calculateMaxTokens(text: string): number {
@@ -456,7 +457,7 @@ export async function translateContent(
   apiKey: string
 ): Promise<string> {
   const translator = new AdvancedTranslator({
-    provider: 'openai',
+    provider: 'llm',
     apiKey,
     cacheEnabled: true,
   });
