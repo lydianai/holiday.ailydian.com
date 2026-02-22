@@ -126,7 +126,7 @@ psql --version
 
 ```bash
 # 1. Navigate to project
-cd /Users/sardag/Desktop/projeler/travel.ailydian.com
+cd /home/lydian/Masaüstü/PROJELER/travel.ailydian.com
 
 # 2. Install dependencies
 npm install

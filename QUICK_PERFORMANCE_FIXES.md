@@ -12,7 +12,7 @@
 ### 1. Remove Unused @tensorflow/tfjs (271 MB Savings)
 
 ```bash
-cd /Users/sardag/Desktop/projeler/travel.ailydian.com
+cd /home/lydian/Masaüstü/PROJELER/travel.ailydian.com
 
 # Verify it's not used
 grep -r "@tensorflow" src/
@@ -38,7 +38,7 @@ npm run build
 
 ### 2. Fix next.config.js Deprecation
 
-**File:** `/Users/sardag/Desktop/projeler/travel.ailydian.com/next.config.js`
+**File:** `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/next.config.js`
 
 ```javascript
 // REMOVE THIS LINE (line 21):
@@ -107,7 +107,7 @@ export async function register() {
 
 ### 4. Fix Prisma Deprecated Config
 
-**File:** `/Users/sardag/Desktop/projeler/travel.ailydian.com/package.json`
+**File:** `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/package.json`
 
 ```json
 // REMOVE THIS:

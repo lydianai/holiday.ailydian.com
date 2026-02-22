@@ -25,7 +25,7 @@ src/app/host-dashboard/
 **Seçenek 1: Üst dizindeki lockfile'ı sil (önerilen)**
 
 ```bash
-rm /Users/sardag/pnpm-lock.yaml
+rm /home/lydian/pnpm-lock.yaml
 ```
 
 **Seçenek 2: next.config.js'e outputFileTracingRoot ekle**
@@ -34,7 +34,7 @@ rm /Users/sardag/pnpm-lock.yaml
 // next.config.js içine ekle:
 module.exports = {
   ...
-  outputFileTracingRoot: '/Users/sardag/Desktop/travel-lydian-enterprise',
+  outputFileTracingRoot: '/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com',
 }
 ```
 

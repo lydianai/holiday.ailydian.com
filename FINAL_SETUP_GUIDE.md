@@ -5,13 +5,13 @@
 Property Owner Dashboard sayfaları (bookings, calendar, earnings vs.) 404 hatası veriyor.
 
 ### Sorun:
-Next.js yanlış workspace root kullanıyor çünkü üst dizinde (`/Users/sardag/`) bir `pnpm-lock.yaml` dosyası bulunuyor.
+Next.js yanlış workspace root kullanıyor çünkü üst dizinde (`/home/lydian/`) bir `pnpm-lock.yaml` dosyası bulunuyor.
 
 ### HIZLI ÇÖZÜM (İki seçenek):
 
 **Seçenek 1: Üst Dizindeki pnpm-lock.yaml'ı Sil (Önerilen)**
 ```bash
-rm /Users/sardag/pnpm-lock.yaml
+rm /home/lydian/pnpm-lock.yaml
 ```
 Sonra sunucuyu yeniden başlat:
 ```bash

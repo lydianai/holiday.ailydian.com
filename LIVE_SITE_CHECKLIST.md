@@ -2,7 +2,7 @@
 
 ## 🔗 Deployment Bilgileri
 - **Production URL**: https://holiday.ailydian.com
-- **Deployment**: https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday/4Xgms4GsGGc92eUxTmf991ZfD1hc
+- **Deployment**: https://vercel.com/lydian-projects/travel-ailydian-holiday/4Xgms4GsGGc92eUxTmf991ZfD1hc
 - **Status**: ✅ LIVE
 - **Build**: Production
 

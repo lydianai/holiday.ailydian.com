@@ -388,7 +388,7 @@ await sendPasswordReset({ to, userName, resetUrl, expiresIn, language });
 ## 📁 File Structure
 
 ```
-/Users/sardag/Desktop/projeler/travel.ailydian.com/
+/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/
 
 src/lib/email/
 ├── index.ts                          # Central exports

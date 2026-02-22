@@ -8,7 +8,7 @@ The Travel LyDian Admin V2 system is a comprehensive B2B/B2C management dashboar
 
 ## File Structure Overview
 
-**Location:** `/Users/sardag/Desktop/travel-lydian-enterprise/src/pages/admin/v2/`
+**Location:** `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/`
 
 **Existing Files:**
 - index.tsx (Main Dashboard)

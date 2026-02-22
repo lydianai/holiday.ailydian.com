@@ -687,31 +687,31 @@ Priority 9: Documentation
 ✅ /src/pages/home.tsx ........................... ~3000 lines | homepage
 
 Absolute Paths:
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/tours.tsx
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/explore/index.tsx
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfers/index.tsx
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/rentals/index.tsx
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/home.tsx
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/tours.tsx
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/explore/index.tsx
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfers/index.tsx
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/rentals/index.tsx
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/home.tsx
 ```
 
 ### Data Files
 ```
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/antalya-tours.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/greece-tours.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/cyprus-tours.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/antalya-transfers.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/antalya-rentals.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/antalya-car-rentals.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/marmaris-bodrum-cesme-tours.ts
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/data/explore-categories.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/antalya-tours.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/greece-tours.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/cyprus-tours.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/antalya-transfers.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/antalya-rentals.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/antalya-car-rentals.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/marmaris-bodrum-cesme-tours.ts
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/data/explore-categories.ts
 ```
 
 ### Config Files
 ```
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/next.config.js ........ Production config
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/tsconfig.json ........ Strict TypeScript
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/tailwind.config.js .. Design tokens
-- /Users/sardag/Desktop/PROJELER/holiday.ailydian.com/next-i18next.config.js i18n config
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/next.config.js ........ Production config
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/tsconfig.json ........ Strict TypeScript
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/tailwind.config.js .. Design tokens
+- /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/next-i18next.config.js i18n config
 ```
 
 ---

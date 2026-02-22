@@ -170,7 +170,7 @@ function TourPage({ tourId }) {
 ## 📁 Project Structure
 
 ```
-/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/
+/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/
 
 ├── src/
 │   ├── lib/

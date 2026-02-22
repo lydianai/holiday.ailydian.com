@@ -33,7 +33,7 @@ Successfully completed a **COMPREHENSIVE** SEO migration and UI/UX consistency u
 **🌐 https://travel-ailydian-holiday-acvsum618.vercel.app**
 
 ### Deployment Inspector
-**🔍 https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday/3r9bfDFJpDJJea2prouKqcLvQAAp**
+**🔍 https://vercel.com/lydian-projects/travel-ailydian-holiday/3r9bfDFJpDJJea2prouKqcLvQAAp**
 
 ---
 
@@ -457,7 +457,7 @@ Once ready, add these environment variables in Vercel:
 ## 📞 SUPPORT & DOCUMENTATION
 
 ### Deployment Resources:
-- **Vercel Dashboard:** https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday
+- **Vercel Dashboard:** https://vercel.com/lydian-projects/travel-ailydian-holiday
 - **Deployment Logs:** Available in Vercel Dashboard
 - **Build Logs:** `/tmp/final-deployment-seo-ui.log`
 

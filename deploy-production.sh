@@ -24,7 +24,7 @@ vercel --prod \
 
 echo ""
 echo "✅ Deployment initiated!"
-echo "🔗 Check progress: https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday/H9h1ZZFvJiNyYWJ7bUN4bRVJYpTu"
+echo "🔗 Check progress: https://vercel.com/lydian-projects/travel-ailydian-holiday/H9h1ZZFvJiNyYWJ7bUN4bRVJYpTu"
 echo ""
 echo "⏳ Waiting for deployment to complete..."
 sleep 10

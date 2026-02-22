@@ -40,7 +40,7 @@ npx prisma migrate dev --name your_migration_name
 
 ### Local PostgreSQL
 ```env
-DATABASE_URL="postgresql://sardag@localhost:5432/travel_ailydian_dev"
+DATABASE_URL="postgresql://lydian@localhost:5432/travel_ailydian_dev"
 ```
 
 ### Supabase (Cloud)

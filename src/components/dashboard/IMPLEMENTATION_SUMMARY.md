@@ -4,7 +4,7 @@
 
 A complete, production-ready dashboard layout system has been created for the LyDian Enterprise Travel Platform.
 
-**Location**: `/Users/sardag/Desktop/travel-lydian-enterprise/src/components/dashboard/`
+**Location**: `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/components/dashboard/`
 
 **Total Code**: 1,621 lines across 10 files
 
@@ -433,7 +433,7 @@ The dashboard layout system is **production-ready** and includes:
 
 ```bash
 # Navigate to your project
-cd /Users/sardag/Desktop/travel-lydian-enterprise
+cd /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com
 
 # Create a dashboard page using the example
 cp src/components/dashboard/DashboardExample.tsx src/app/dashboard/page.tsx

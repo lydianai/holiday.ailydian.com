@@ -82,7 +82,7 @@ TTL: 3600
    - Alternatif olarak A kaydını kullanabilirsiniz
 
 3. **Vercel Dashboard'da Doğrulama**
-   - https://vercel.com/emrahsardag-yandexcoms-projects/travel-lydian-enterprise/settings/domains
+   - https://vercel.com/lydian-projects/travel-lydian-enterprise/settings/domains
    - `dashboard.travel.lydian.com` domain'ini ekleyin ve doğrulayın
 
 4. **Propagation Bekleme**
@@ -94,7 +94,7 @@ TTL: 3600
 ## Vercel Dashboard Üzerinden Yapılandırma
 
 ### 1. Vercel Dashboard'a Girin
-https://vercel.com/emrahsardag-yandexcoms-projects/travel-lydian-enterprise
+https://vercel.com/lydian-projects/travel-lydian-enterprise
 
 ### 2. Settings > Domains
 - "Add Domain" butonuna tıklayın

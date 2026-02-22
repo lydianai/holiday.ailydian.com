@@ -353,7 +353,7 @@ STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 ## File Structure
 
 ```
-/Users/sardag/Desktop/projeler/travel.ailydian.com/
+/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/
 
 ├── src/
 │   ├── lib/

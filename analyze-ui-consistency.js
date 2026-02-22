@@ -10,7 +10,7 @@ const { exec } = require('child_process');
 const util = require('util');
 const execPromise = util.promisify(exec);
 
-const BASE_DIR = '/Users/sardag/Desktop/PROJELER/travel.ailydian.com/src';
+const BASE_DIR = '/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src';
 
 // Design System Tokens (from src/design-system/tokens.ts)
 const APPROVED_COLORS = [

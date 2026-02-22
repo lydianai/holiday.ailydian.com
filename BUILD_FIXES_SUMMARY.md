@@ -191,7 +191,7 @@ export async function onRequestError(err, request, context) {
 **Code Changes:**
 ```bash
 # Added to .env
-DIRECT_URL="postgresql://sardag@localhost:5432/travel_ailydian_dev"
+DIRECT_URL="postgresql://lydian@localhost:5432/travel_ailydian_dev"
 ```
 
 ---

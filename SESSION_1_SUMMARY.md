@@ -1,7 +1,7 @@
 # 📋 SESSION 1 - ÖZET RAPOR
 
 **Proje:** Travel LyDian Enterprise
-**Konum:** `/Users/sardag/Desktop/travel-lydian-enterprise`
+**Konum:** `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com`
 **Tarih:** 22 Aralık 2025
 **Session Durumu:** BAŞARIYLA TAMAMLANDI ✅
 
@@ -404,7 +404,7 @@ GET    /api/car-rentals/[slug]            - Car details
 
 ### Proje Konumu
 ```
-/Users/sardag/Desktop/travel-lydian-enterprise
+/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com
 ```
 
 ### Önemli Dosyalar

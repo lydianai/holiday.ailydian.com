@@ -604,7 +604,7 @@ Session 3 mükemmel geçti!
 
 ### Run Server
 ```bash
-cd /Users/sardag/Desktop/travel-lydian-enterprise
+cd /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com
 npm run dev
 ```
 

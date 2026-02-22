@@ -3,7 +3,7 @@
 # AILYDIAN NIRVANA MODE - Backup Cleanup Script
 # Cleans up all backup files safely
 
-PROJECT_DIR="/Users/sardag/Desktop/projeler/holiday.ailydian.com"
+PROJECT_DIR="/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com"
 BACKUP_TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 LOG_FILE="cleanup-log-${BACKUP_TIMESTAMP}.txt"
 

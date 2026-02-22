@@ -16,7 +16,7 @@
 **https://travel-ailydian-holiday-2y32aw7qw.vercel.app**
 
 ### 🔍 Inspect URL (Deployment Details)
-**https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday/GHS1uvRppUEbZyFPH7ap9EHQYLcE**
+**https://vercel.com/lydian-projects/travel-ailydian-holiday/GHS1uvRppUEbZyFPH7ap9EHQYLcE**
 
 ---
 
@@ -341,7 +341,7 @@ Site şu an **LIVE** ve tüm dünyadan erişilebilir durumda!
 
 ## 📞 Support & Resources
 
-- **Vercel Dashboard:** https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday
+- **Vercel Dashboard:** https://vercel.com/lydian-projects/travel-ailydian-holiday
 - **Deployment Logs:** Available in Vercel Dashboard
 - **Build Logs:** Saved at `/tmp/vercel-deploy-fixed.log`
 - **Previous Deployment:** DEPLOYMENT_SUCCESS.md

@@ -10,7 +10,7 @@
 🌐 **https://travel-ailydian-holiday-8ogenjeho.vercel.app**
 
 ### Inspect URL (Deployment Details)
-🔍 **https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday/6W4b1GFvK515kb3q85sFYHP3JdFC**
+🔍 **https://vercel.com/lydian-projects/travel-ailydian-holiday/6W4b1GFvK515kb3q85sFYHP3JdFC**
 
 ## 📊 Build Metrics
 
@@ -177,7 +177,7 @@ Once environment variables are added:
 
 ## 📞 Support
 
-- **Vercel Dashboard:** https://vercel.com/emrahsardag-yandexcoms-projects/travel-ailydian-holiday
+- **Vercel Dashboard:** https://vercel.com/lydian-projects/travel-ailydian-holiday
 - **Deployment Logs:** Available in Vercel Dashboard
 - **Build Logs:** Saved in deployment history
 

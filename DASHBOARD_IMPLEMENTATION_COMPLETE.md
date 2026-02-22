@@ -447,7 +447,7 @@ Features:
 
 ### 1. Start Development Server
 ```bash
-cd /Users/sardag/Desktop/travel-lydian-enterprise
+cd /home/lydian/Masaüstü/PROJELER/holiday.ailydian.com
 npm run dev
 ```
 

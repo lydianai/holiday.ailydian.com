@@ -54,51 +54,51 @@ ALL red colors replaced with purple/blue:
 ## Files Modified
 
 ### Admin Pages (6 files)
-1. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/ai-content-writer.tsx`
-2. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/dashboard.tsx`
-3. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/locations.tsx`
-4. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/platforms.tsx`
-5. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/reviews.tsx`
-6. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/users.tsx`
+1. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/ai-content-writer.tsx`
+2. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/dashboard.tsx`
+3. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/locations.tsx`
+4. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/platforms.tsx`
+5. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/reviews.tsx`
+6. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/users.tsx`
 
 ### Admin V2 Pages (19 files)
-7. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/all-products.tsx`
-8. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/analytics.tsx`
-9. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/b2b.tsx`
-10. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/car-rentals.tsx`
-11. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/car-rentals/[id]/edit.tsx`
-12. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/content.tsx`
-13. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/index.tsx`
-14. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/navigation.tsx`
-15. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/products.tsx`
-16. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/rental-properties.tsx`
-17. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/rental-properties/[id]/edit.tsx`
-18. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/settings.tsx`
-19. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/tours.tsx`
-20. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/admin/v2/transfers.tsx`
-21. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/adminv2/index.tsx`
-22. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/adminv2/media.tsx`
-23. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/adminv2/tours/index.tsx`
+7. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/all-products.tsx`
+8. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/analytics.tsx`
+9. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/b2b.tsx`
+10. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/car-rentals.tsx`
+11. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/car-rentals/[id]/edit.tsx`
+12. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/content.tsx`
+13. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/index.tsx`
+14. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/navigation.tsx`
+15. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/products.tsx`
+16. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/rental-properties.tsx`
+17. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/rental-properties/[id]/edit.tsx`
+18. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/settings.tsx`
+19. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/tours.tsx`
+20. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/admin/v2/transfers.tsx`
+21. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/adminv2/index.tsx`
+22. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/adminv2/media.tsx`
+23. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/adminv2/tours/index.tsx`
 
 ### Commercial Vehicle Owner Pages (3 files)
-24. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/auth/login.tsx`
-25. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/auth/register.tsx`
-26. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/index.tsx`
+24. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/auth/login.tsx`
+25. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/auth/register.tsx`
+26. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/commercial-vehicle-owner/index.tsx`
 
 ### Transfer Owner Pages (5 files)
-27. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/login.tsx`
-28. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/register.tsx`
-29. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/terms.tsx`
-30. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/drivers.tsx`
-31. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/vehicles/new/index.tsx`
+27. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/login.tsx`
+28. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/register.tsx`
+29. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/auth/terms.tsx`
+30. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/drivers.tsx`
+31. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/transfer-owner/vehicles/new/index.tsx`
 
 ### Vehicle Owner Pages (6 files)
-32. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/login.tsx`
-33. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/register.tsx`
-34. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/terms.tsx`
-35. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/index.tsx`
-36. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/settings.tsx`
-37. `/Users/sardag/Desktop/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/vehicles/new/index.tsx`
+32. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/login.tsx`
+33. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/register.tsx`
+34. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/auth/terms.tsx`
+35. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/index.tsx`
+36. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/settings.tsx`
+37. `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/pages/vehicle-owner/vehicles/new/index.tsx`
 
 ## Design System Established
 

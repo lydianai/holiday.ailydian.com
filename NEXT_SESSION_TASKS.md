@@ -1,7 +1,7 @@
 # 🚀 TRAVEL AILYDIAN ENTERPRISE - SESSION 2 GÖREV LİSTESİ
 
 ## 📍 Proje Konumu
-**Path:** `/Users/sardag/Desktop/travel-lydian-enterprise`
+**Path:** `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com`
 
 ## ✅ SESSION 1'DE TAMAMLANANLAR
 
@@ -360,7 +360,7 @@ model RentalProperty {
 ## 🛠️ TEKNIK NOTLAR
 
 ### Database Schema Location
-`/Users/sardag/Desktop/travel-lydian-enterprise/prisma/schema.prisma`
+`/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/prisma/schema.prisma`
 
 **Önemli Modeller:**
 - Lines 1194-1280: CarRental model
@@ -492,7 +492,7 @@ NEXTAUTH_URL="http://localhost:3000"
 
 Bu görev listesi, Session 1'de başladığımız işin devamı için hazırlanmıştır.
 
-**Önemli:** Tüm değişiklikler `/Users/sardag/Desktop/travel-lydian-enterprise` konumunda yapılmalıdır.
+**Önemli:** Tüm değişiklikler `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com` konumunda yapılmalıdır.
 
 **Mevcut Durum:**
 - ✅ Navigation System: %100 Complete

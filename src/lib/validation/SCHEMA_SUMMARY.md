@@ -4,7 +4,7 @@
 
 Comprehensive Zod validation schema file created for the Travel LyDian Enterprise property submission wizard at:
 
-**Location:** `/Users/sardag/Desktop/travel-lydian-enterprise/src/lib/validation/`
+**Location:** `/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/lib/validation/`
 
 ## Files Created
 
@@ -295,7 +295,7 @@ import {
 ## Files Location
 
 ```
-/Users/sardag/Desktop/travel-lydian-enterprise/src/lib/validation/
+/home/lydian/Masaüstü/PROJELER/holiday.ailydian.com/src/lib/validation/
 ├── propertySubmissionSchemas.ts (Main schemas & helpers)
 ├── propertySubmissionSchemas.test.ts (Examples & tests)
 ├── README.md (Comprehensive documentation)

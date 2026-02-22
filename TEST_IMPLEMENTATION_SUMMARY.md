@@ -17,7 +17,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 1. Unit Tests Created: 5 Files
 
 #### 1.1 Booking Utilities Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/src/lib/utils/__tests__/booking-utils.test.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src/lib/utils/__tests__/booking-utils.test.ts`
 
 **Test Coverage**:
 - `generateBookingReference()` - 3 test cases
@@ -31,7 +31,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 **Total**: 31 test cases covering all booking utility functions
 
 #### 1.2 Booking Service Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/src/lib/services/__tests__/booking-service.test.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src/lib/services/__tests__/booking-service.test.ts`
 
 **Test Coverage**:
 - `createBooking()` - 3 test cases
@@ -47,7 +47,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 **Total**: 22 test cases covering all booking service methods
 
 #### 1.3 Stripe Checkout Component Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/src/components/payment/__tests__/StripeCheckout.test.tsx`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src/components/payment/__tests__/StripeCheckout.test.tsx`
 
 **Test Coverage**:
 - Component rendering - 5 test cases
@@ -63,7 +63,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 2. API Integration Tests Created: 2 Files
 
 #### 2.1 Property Booking Creation API Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/src/pages/api/bookings/property/__tests__/create.test.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src/pages/api/bookings/property/__tests__/create.test.ts`
 
 **Test Coverage**:
 - Method validation - 1 test case
@@ -78,7 +78,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 **Total**: 17 test cases for booking creation endpoint
 
 #### 2.2 Payment Intent Creation API Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/src/pages/api/payments/__tests__/create-intent.test.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/src/pages/api/payments/__tests__/create-intent.test.ts`
 
 **Test Coverage**:
 - Method validation - 2 test cases
@@ -94,7 +94,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 3. E2E Tests Created: 2 Files
 
 #### 3.1 Complete Booking Flow E2E Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/cypress/e2e/booking-flow.cy.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/cypress/e2e/booking-flow.cy.ts`
 
 **Test Coverage**:
 - Property search and selection - 2 test cases
@@ -109,7 +109,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 **Total**: 21 E2E test scenarios for complete booking flow
 
 #### 3.2 Authentication Flow E2E Tests
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/cypress/e2e/authentication.cy.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/cypress/e2e/authentication.cy.ts`
 
 **Test Coverage**:
 - User registration - 6 test cases
@@ -129,7 +129,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 4. Test Infrastructure
 
 #### 4.1 Jest Configuration
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/jest.config.js`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/jest.config.js`
 
 **Updates**:
 - Updated coverage thresholds to 80% (branches, functions, lines, statements)
@@ -138,7 +138,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 - Configured coverage collection
 
 #### 4.2 Jest Setup
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/jest.setup.js`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/jest.setup.js`
 
 **Mocks Configured**:
 - Next.js router
@@ -148,7 +148,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 - IntersectionObserver
 
 #### 4.3 Cypress Configuration
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/cypress.config.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/cypress.config.ts`
 
 **Verified Configuration**:
 - Base URL: http://localhost:3100
@@ -157,7 +157,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 - Viewport configuration
 
 #### 4.4 Cypress Custom Commands
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/cypress/support/commands.ts`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/cypress/support/commands.ts`
 
 **Commands Created**:
 - `cy.login(email, password)` - Programmatic login
@@ -170,7 +170,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 5. CI/CD Integration
 
 #### 5.1 GitHub Actions Workflow
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/.github/workflows/test.yml`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/.github/workflows/test.yml`
 
 **Pipeline Stages**:
 
@@ -204,7 +204,7 @@ Successfully implemented a comprehensive test framework for the Travel.Ailydian.
 ### 6. Documentation
 
 #### 6.1 Comprehensive Testing Guide
-**File**: `/Users/sardag/Desktop/projeler/travel.ailydian.com/TESTING.md`
+**File**: `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/TESTING.md`
 
 **Contents**:
 - Overview and test stack

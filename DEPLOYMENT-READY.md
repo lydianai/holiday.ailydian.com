@@ -30,7 +30,7 @@ i18n: {
 }
 ```
 
-**File Modified:** `/Users/sardag/Desktop/PROJELER/travel.ailydian.com/next.config.js` (Lines 17-21)
+**File Modified:** `/home/lydian/Masaüstü/PROJELER/travel.ailydian.com/next.config.js` (Lines 17-21)
 
 ---
 
@@ -169,7 +169,7 @@ SENTRY_IGNORE_API_RESOLUTION_ERROR=true
 
 ### Step 1: Push to Git Repository
 ```bash
-cd /Users/sardag/Desktop/PROJELER/travel.ailydian.com
+cd /home/lydian/Masaüstü/PROJELER/travel.ailydian.com
 
 # Add all changes
 git add next.config.js .env.production vercel.json
