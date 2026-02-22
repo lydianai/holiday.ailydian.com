@@ -1,6 +1,6 @@
 /**
  * AI Chat API Endpoint
- * Real-time AI travel assistant powered by Groq/OpenAI/Claude
+ * Real-time AI travel assistant
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';

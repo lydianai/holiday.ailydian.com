@@ -101,9 +101,9 @@ const TIME_RANGES: readonly TimeRange[] = [
 ];
 
 const AI_PROVIDERS = [
-  { id: 'openai', name: 'OpenAI GPT-4 Vision', color: 'emerald' },
-  { id: 'anthropic', name: 'Claude Vision', color: 'purple' },
-  { id: 'google', name: 'Google Gemini Vision', color: 'blue' },
+  { id: 'openai', name: 'Vision Engine A', color: 'emerald' },
+  { id: 'anthropic', name: 'Vision Engine B', color: 'purple' },
+  { id: 'google', name: 'Vision Engine C', color: 'blue' },
   { id: 'groq', name: 'Groq Vision', color: 'orange' },
 ] as const;
 

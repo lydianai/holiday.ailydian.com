@@ -188,9 +188,9 @@ export class AdvancedContentGenerator {
    */
   private getDefaultModel(provider: AIProvider): string {
     const models: Record<AIProvider, string> = {
-      ai-provider: 'gpt-4-turbo-preview',
-      ai-provider: 'claude-3-5-sonnet-20241022',
-      google: 'gemini-pro',
+      ai-provider: process.env.PRIMARY_AI_MODEL,
+      ai-provider: process.env.SECONDARY_AI_MODEL,
+      ai-tertiary: process.env.TERTIARY_AI_MODEL,
       groq: 'mixtral-8x7b-32768',
     };
     return models[provider];

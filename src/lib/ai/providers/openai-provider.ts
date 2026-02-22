@@ -1,6 +1,6 @@
 /**
  * OpenAI Provider
- * Fallback provider using GPT-4/3.5
+ * Fallback analysis provider
  */
 
 import OpenAI from 'openai';

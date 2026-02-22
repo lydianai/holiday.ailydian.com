@@ -1,7 +1,7 @@
 /**
  * Vision Search Service
  * Advanced multi-modal AI for image-based travel search
- * Supports: GPT-4 Vision, Claude Vision, Gemini Vision
+ * Supports: Multiple AI vision providers
  *
  * @module VisionSearchService
  * @performance < 2s response time (p95)
@@ -283,7 +283,7 @@ export class VisionSearchService {
   }
 
   /**
-   * OpenAI GPT-4 Vision analysis
+   * Primary provider vision analysis
    */
   private async analyzeWithOpenAI(
     imageUrl: string,

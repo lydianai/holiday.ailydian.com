@@ -1,6 +1,6 @@
 /**
- * Anthropic Claude Provider
- * Secondary fallback using Claude 3 models
+ * AI Analysis Provider B
+ * Secondary fallback provider
  */
 
 import Anthropic from '@anthropic-ai/sdk';

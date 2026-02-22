@@ -69,7 +69,7 @@ async function handler(
     const endDate = new Date(preferences.endDate);
     const numberOfDays = differenceInDays(endDate, startDate) + 1;
 
-    // Generate itinerary using OpenAI GPT-4
+    // Generate itinerary using AI engine
     const prompt = `Create a detailed ${numberOfDays}-day travel itinerary for ${preferences.destination}.
 
 Trip Details:
